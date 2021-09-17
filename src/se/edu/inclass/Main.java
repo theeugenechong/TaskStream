@@ -53,10 +53,20 @@ public class Main {
             }
         }
     }
+
     public static void printDeadlinesWithStream(ArrayList<Task> tasks) {
         System.out.println("Printing deadlines using stream");
         tasks.stream() // convert data to stream
                 .filter((t) -> t instanceof Deadline) // filtering using lambda
                 .forEach(System.out::println);
+    }
+
+    private static int countDeadlinesWithStream(ArrayList<Task> tasks) {
+        System.out.println("Counting deadlines using stream");
+        int count = (int) tasks.stream()
+                .filter((t) -> t instanceof Deadline) // filtering using lambda
+                .count();
+
+        return count;
     }
 }
